@@ -1,0 +1,32 @@
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.cktext_area :description ,  :ckeditor => { :width=>800, :height => 100},  :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :body, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.cktext_area :body,   :ckeditor => { :toolbar =>"Basic" } , :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :msg, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.cktext_area :msg,  :ckeditor => {:language => "uk", :uiColor => '#9AB8F3'},  :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' %>
+  </div>
+<% end %>
